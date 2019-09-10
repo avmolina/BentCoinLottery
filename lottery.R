@@ -9,15 +9,19 @@
 
 library(stats)
 
-arr <- array(0,10)
-for (i in 1:10){
-  arr[i] <- if (runif(1) < 0.1) 1 else 0
+threshold = 0.1
+totaltoss = 10
+totalsim= 100
+
+simulation <- array(0,totaltoss)
+for (i in 1:totaltoss){
+  simulation[i] <- if (runif(1) < threshold) 1 else 0
 }
 
-for (j in 1:100){
-  arr <- array(0,10)
-  for (i in 1:10){
-    arr[i] <- if (runif(1) < 0.1) 1 else 0
+for (j in 1:totalsim){
+  simulation <- array(0,totaltoss)
+  for (i in 1:totaltoss){
+    simulation[i] <- if (runif(1) < threshold) 1 else 0
   }
-  print(arr)
+  print(simulation)
 }
